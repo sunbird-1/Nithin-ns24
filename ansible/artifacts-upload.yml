@@ -4,18 +4,6 @@
   vars_files:
     - "{{inventory_dir}}/secrets.yml"
   tasks:
-    - name: upload artifact to azure storage
-      include_role:
-        name: azure-cloud-storage
-        tasks_from: blob-upload.yml
-      vars:
-        blob_container_name: "{{ artifacts_container }}"
-        container_public_access: "off"
-        blob_file_name: "{{ artifact }}"
-        local_file_or_folder_path: "{{ artifact_path }}"
-        storage_account_name: "{{ azure_artifact_storage_account_name }}"
-        storage_account_key: "{{ azure_artifact_storage_account_key }}"
-      when: cloud_service_provider == "azure"
 
     - name: upload artifact to gcloud storage
       include_role:
