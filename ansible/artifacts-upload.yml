@@ -4,7 +4,6 @@
   vars_files:
     - "{{inventory_dir}}/secrets.yml"
   tasks:
-
     - name: upload artifact to gcloud storage
       include_role:
         name: gcp-cloud-storage
