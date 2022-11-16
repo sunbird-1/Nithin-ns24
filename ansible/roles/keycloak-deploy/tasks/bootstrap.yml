@@ -98,3 +98,8 @@
   changed_when: true
 
 - meta: flush_handlers
+
+- name: Install python certifi packages with specified versions
+  pip:
+    name: certifi==2018.11.29
+    state: present
